@@ -4,6 +4,7 @@
 
 	PHP >= 5.4.0
 	MCrypt PHP Extension
+	Memcached PHP Extension
 
 ### Instructions
 
