@@ -1,21 +1,45 @@
-## Laravel PHP Framework
+## Tweets of my followers
 
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework) [![License](https://poser.pugx.org/laravel/framework/license.png)](https://packagist.org/packages/laravel/framework)
+### Requirements
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+	PHP >= 5.4.0
+	MCrypt PHP Extension
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+### Instructions
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+- clone repository
+		git clone https://github.com/ArabAgile/MyFollowerTweets.git test
 
-## Official Documentation
+- Go inside dir and run: 
+		composer update
 
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
+- Change files permissions for storage dir by running: 
+		chmod -R 0777 app/storage
 
-### Contributing To Laravel
+- Configurations you can edit: 
+		/app/config/app.php
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+		// Cache lifetime in minutes
+		'cache_lifetime' => 10,
+
+		// Twitter screen name
+		'twitter_screen_name' => 'ammaralrfai’, // My twitter screen name
+
+		'twitter_follower_per_page' => 100,  // Followers per page/ change to less than 100 to see pager
+		'twitter_follower_per_request' => 100,
+		'twitter_tweets_per_request' => 1,
+
+- Use correct twitter API auth & access token details by changing configuration file under:
+/app/config/packages/thujohn/twitter/config.php
+
+- SQLite should be installed and configured properly with PHP as PDO
+
+- Memcached should be installed and configured properly with PHP as memcached extension (not memcache), if the configurations is not the default (host,port,weight) you can edit the config details in: app/config/cache.php 
+
+- Navigate to /public/ folder in browser and see what your followers tweeting...
+
 
 ### License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
